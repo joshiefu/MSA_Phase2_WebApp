@@ -12,3 +12,17 @@ C:\Users\Joshua\Documents\MSA\MSA_Phase2_WebApp\DataBank\obj\Debug\netcoreapp2.1
 C:\Users\Joshua\Documents\MSA\MSA_Phase2_WebApp\DataBank\obj\Debug\netcoreapp2.1\DataBank.RazorTargetAssemblyInfo.cache
 C:\Users\Joshua\Documents\MSA\MSA_Phase2_WebApp\DataBank\obj\Debug\netcoreapp2.1\DataBank.dll
 C:\Users\Joshua\Documents\MSA\MSA_Phase2_WebApp\DataBank\obj\Debug\netcoreapp2.1\DataBank.pdb
+C:\Users\Joshua\Documents\MSA_Phase2_WebApp\DataBank\bin\Debug\netcoreapp2.1\DataBank.deps.json
+C:\Users\Joshua\Documents\MSA_Phase2_WebApp\DataBank\bin\Debug\netcoreapp2.1\DataBank.runtimeconfig.json
+C:\Users\Joshua\Documents\MSA_Phase2_WebApp\DataBank\bin\Debug\netcoreapp2.1\DataBank.runtimeconfig.dev.json
+C:\Users\Joshua\Documents\MSA_Phase2_WebApp\DataBank\bin\Debug\netcoreapp2.1\DataBank.dll
+C:\Users\Joshua\Documents\MSA_Phase2_WebApp\DataBank\bin\Debug\netcoreapp2.1\DataBank.pdb
+C:\Users\Joshua\Documents\MSA_Phase2_WebApp\DataBank\obj\Debug\netcoreapp2.1\DataBank.csprojAssemblyReference.cache
+C:\Users\Joshua\Documents\MSA_Phase2_WebApp\DataBank\obj\Debug\netcoreapp2.1\DataBank.csproj.CoreCompileInputs.cache
+C:\Users\Joshua\Documents\MSA_Phase2_WebApp\DataBank\obj\Debug\netcoreapp2.1\DataBank.RazorAssemblyInfo.cache
+C:\Users\Joshua\Documents\MSA_Phase2_WebApp\DataBank\obj\Debug\netcoreapp2.1\DataBank.RazorAssemblyInfo.cs
+C:\Users\Joshua\Documents\MSA_Phase2_WebApp\DataBank\obj\Debug\netcoreapp2.1\DataBank.AssemblyInfoInputs.cache
+C:\Users\Joshua\Documents\MSA_Phase2_WebApp\DataBank\obj\Debug\netcoreapp2.1\DataBank.AssemblyInfo.cs
+C:\Users\Joshua\Documents\MSA_Phase2_WebApp\DataBank\obj\Debug\netcoreapp2.1\DataBank.RazorTargetAssemblyInfo.cache
+C:\Users\Joshua\Documents\MSA_Phase2_WebApp\DataBank\obj\Debug\netcoreapp2.1\DataBank.dll
+C:\Users\Joshua\Documents\MSA_Phase2_WebApp\DataBank\obj\Debug\netcoreapp2.1\DataBank.pdb
