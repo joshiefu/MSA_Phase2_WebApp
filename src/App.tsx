@@ -1,8 +1,8 @@
 import * as React from 'react';
 import Modal from 'react-responsive-modal';
 import './App.css';
-import MemeDetail from './components/MemeDetail';
-import MemeList from './components/MemeList';
+import ObjectDetail from './components/ObjectDetail';
+import ObjectList from './components/ObjectList';
 import PatrickLogo from './patrick-logo.png';
 
 
@@ -44,10 +44,10 @@ class App extends React.Component<{}, IState> {
 			<div className="container">
 				<div className="row">
 					<div className="col-7">
-						<MemeDetail currentMeme={this.state.currentMeme} />
+						<ObjectDetail currentMeme={this.state.currentMeme} />
 					</div>
 					<div className="col-5">
-						<MemeList memes={this.state.memes} selectNewMeme={this.selectNewMeme} searchByTag={this.fetchMemes}/>
+						<ObjectList memes={this.state.memes} selectNewMeme={this.selectNewMeme} searchByTag={this.fetchMemes}/>
 					</div>
 				</div>
 			</div>
