@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.1",
-    "signature": "b4e3947e0cf54c627cd698b4e2701b10170bf7be"
+    "signature": "23cb32eff56fe39c33cdf938aed71447dd3a8371"
   },
   "compilationOptions": {
     "defines": [
@@ -30,7 +30,8 @@
           "Microsoft.NETCore.App": "2.1.0",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "2.1.1",
           "Swashbuckle.AspNetCore": "4.0.1",
-          "System.Drawing.Common": "4.5.1"
+          "System.Drawing.Common": "4.5.1",
+          "WindowsAzure.Storage": "9.3.2"
         },
         "runtime": {
           "DataBank.dll": {}
@@ -892,6 +893,21 @@
           "System.Reflection.Extensions": "4.3.0",
           "System.Resources.ResourceManager": "4.3.0",
           "System.Runtime": "4.3.0"
+        }
+      },
+      "WindowsAzure.Storage/9.3.2": {
+        "dependencies": {
+          "NETStandard.Library": "2.0.3",
+          "Newtonsoft.Json": "11.0.2"
+        },
+        "runtime": {
+          "lib/netstandard1.3/Microsoft.WindowsAzure.Storage.dll": {
+            "assemblyVersion": "9.3.2.0",
+            "fileVersion": "9.3.2.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard1.3/Microsoft.WindowsAzure.Storage.dll": {}
         }
       },
       "Microsoft.AspNet.WebApi.Client/5.2.6": {
@@ -4108,6 +4124,13 @@
       "sha512": "sha512-Yn/WfYe9RoRfmSLvUt2JerP0BTGGykCZkQPgojaxgzF2N0oPo+/AhB8TXOpdCcNlrG3VRtsamtK2uzsp3cqRVw==",
       "path": "system.linq.queryable/4.0.1",
       "hashPath": "system.linq.queryable.4.0.1.nupkg.sha512"
+    },
+    "WindowsAzure.Storage/9.3.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-3MhTw6Jdh9PkaaOCYi6K/L0Bl+AbBQbD+acn4uLkIUqqC5lts8JnSUZqQygtA6zhiY2bUi7Xmspv3tdJI/qjMA==",
+      "path": "windowsazure.storage/9.3.2",
+      "hashPath": "windowsazure.storage.9.3.2.nupkg.sha512"
     },
     "Microsoft.AspNet.WebApi.Client/5.2.6": {
       "type": "package",

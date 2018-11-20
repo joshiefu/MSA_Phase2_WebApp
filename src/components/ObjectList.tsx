@@ -1,8 +1,8 @@
 import * as React from "react";
 
 interface IProps {
-    memes: any[],
-    selectNewMeme: any,
+    roses: any[],
+    selectNewRose: any,
     searchByTag: any
 }
 
@@ -14,8 +14,8 @@ export default class ObjectList extends React.Component<IProps, {}> {
 
 	public render() {
 		return (
-			<div className="container meme-list-wrapper">
-                <div className="row meme-list-heading">
+			<div className="container rose-list-wrapper">
+                <div className="row rose-list-heading">
                     <div className="input-group">
                         <input type="text" id="search-tag-textbox" className="form-control" placeholder="Search By Tags" />
                         <div className="input-group-append">
@@ -23,7 +23,7 @@ export default class ObjectList extends React.Component<IProps, {}> {
                         </div>
                     </div>  
                 </div>
-                <div className="row meme-list-table">
+                <div className="row rose-list-table">
                     <table className="table table-striped">
                         <tbody>
                             {this.createTable()}
@@ -34,34 +34,34 @@ export default class ObjectList extends React.Component<IProps, {}> {
 		);
     }
 
-    // Construct table using meme list
+    // Construct table using rose list
 	private createTable() {
         const table:any[] = []
-        const memeList = this.props.memes
-        if (memeList == null) {
+        const roseList = this.props.roses
+        if (roseList == null) {
             return table
         }
 
-        for (let i = 0; i < memeList.length; i++) {
+        for (let i = 0; i < roseList.length; i++) {
             const children = []
-            const meme = memeList[i]
-            children.push(<td key={"id" + i}>{meme.id}</td>)
-            children.push(<td key={"name" + i}>{meme.title}</td>)
-            children.push(<td key={"tags" + i}>{meme.tags}</td>)
+            const rose = roseList[i]
+            children.push(<td key={"id" + i}>{rose.id}</td>)
+            children.push(<td key={"name" + i}>{rose.title}</td>)
+            children.push(<td key={"tags" + i}>{rose.tags}</td>)
             table.push(<tr key={i+""} id={i+""} onClick= {this.selectRow.bind(this, i)}>{children}</tr>)
         }
         return table
     }
     
-    // Meme selection handler to display selected meme in details component
+    // Rose selection handler to display selected rose in details component
     private selectRow(index: any) {
-        const selectedMeme = this.props.memes[index]
-        if (selectedMeme != null) {
-            this.props.selectNewMeme(selectedMeme)
+        const selectedRose = this.props.roses[index]
+        if (selectedRose != null) {
+            this.props.selectNewRose(selectedRose)
         }
     }
 
-    // Search meme by tag
+    // Search rose by tag
     private searchByTag() {
         const textBox = document.getElementById("search-tag-textbox") as HTMLInputElement
         if (textBox === null) {
