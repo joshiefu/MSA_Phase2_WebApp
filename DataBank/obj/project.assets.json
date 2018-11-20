@@ -13118,11 +13118,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Joshua\\Documents\\MSA_Phase2_WebApp\\DataBank\\DataBank.csproj",
+      "projectUniqueName": "C:\\Users\\Joshua\\Documents\\MSA\\MSA_Phase2_WebApp\\DataBank\\DataBank.csproj",
       "projectName": "DataBank",
-      "projectPath": "C:\\Users\\Joshua\\Documents\\MSA_Phase2_WebApp\\DataBank\\DataBank.csproj",
+      "projectPath": "C:\\Users\\Joshua\\Documents\\MSA\\MSA_Phase2_WebApp\\DataBank\\DataBank.csproj",
       "packagesPath": "C:\\Users\\Joshua\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Joshua\\Documents\\MSA_Phase2_WebApp\\DataBank\\obj\\",
+      "outputPath": "C:\\Users\\Joshua\\Documents\\MSA\\MSA_Phase2_WebApp\\DataBank\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
