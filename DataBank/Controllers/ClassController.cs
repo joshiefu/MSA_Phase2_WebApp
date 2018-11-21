@@ -129,17 +129,30 @@ namespace DataBank.Controllers
             return _context.ClassItem.Any(e => e.Id == id);
         }
 
-        // GET: api/Meme/Tags
-        [Route("tags")]
+        // GET: api/Class/Tags
+        //  [Route("tags")]
+        //  [HttpGet]
+        //  public async Task<List<string>> GetTags()
+        //  {
+        //      var objects = (from m in _context.ClassItem
+        //                     select m.Tags).Distinct();
+
+        //      var returned = await objects.ToListAsync();
+
+        //      return returned;
+        //  }
+
+        [Route("tags/{tags}")]
         [HttpGet]
-        public async Task<List<string>> GetTags()
+        public async Task<List<ClassItem>> GetClassByTag([FromRoute] String tag)
         {
-            var objects = (from m in _context.ClassItem
-                         select m.Tags).Distinct();
+            var image = (from i in _context.ClassItem
+                         where i.Tags.Equals(tag)
+                         select i);
 
-            var returned = await objects.ToListAsync();
+            var val = await image.ToListAsync();
 
-            return returned;
+            return val;
         }
 
         [HttpPost, Route("upload")]
@@ -242,5 +255,7 @@ namespace DataBank.Controllers
                 return "." + extentionList.Last(); //assumes last item is the extension 
             }
         }
+
+  
     }
 }
