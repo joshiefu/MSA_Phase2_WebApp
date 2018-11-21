@@ -142,7 +142,7 @@ namespace DataBank.Controllers
         //      return returned;
         //  }
 
-        [Route("tags/{tags}")]
+        [Route("tag/{tag}")]
         [HttpGet]
         public async Task<List<ClassItem>> GetClassByTag([FromRoute] String tag)
         {
