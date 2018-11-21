@@ -3,7 +3,7 @@ import Modal from 'react-responsive-modal';
 import './App.css';
 import ObjectDetail from './components/ObjectDetail';
 import ObjectList from './components/ObjectList';
-import PatrickLogo from './patrick-logo.png';
+import Logo from './logo.png';
 
 
 interface IState {
@@ -37,7 +37,7 @@ class App extends React.Component<{}, IState> {
 		<div>
 			<div className="header-wrapper">
 				<div className="container header">
-					<img src={PatrickLogo} height='40'/>&nbsp; Rose Bank - MSA 2018 &nbsp;
+					<img src={Logo} height='40'/>&nbsp; Rose Bank - MSA 2018 &nbsp;
 					<div className="btn btn-primary btn-action btn-add" onClick={this.onOpenModal}>Add Rose</div>
 				</div>
 			</div>
@@ -96,7 +96,7 @@ class App extends React.Component<{}, IState> {
 	private fetchRoses(tag: any) {
 		let url = "https://databankapi.azurewebsites.net/api/Class"
 		if (tag !== "") {
-			url += "/tag?=" + tag
+			url += "/tags/" + tag
 		}
         fetch(url, {
             method: 'GET'

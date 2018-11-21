@@ -142,12 +142,12 @@ namespace DataBank.Controllers
         //      return returned;
         //  }
 
-        [Route("tag/{tag}")]
+        [Route("tags/{tags}")]
         [HttpGet]
-        public async Task<List<ClassItem>> GetClassByTag([FromRoute] String tag)
+        public async Task<List<ClassItem>> GetClassByTag([FromRoute] String tags)
         {
             var image = (from i in _context.ClassItem
-                         where i.Tags.Equals(tag)
+                         where i.Tags.Equals(tags)
                          select i);
 
             var val = await image.ToListAsync();
