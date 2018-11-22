@@ -1,4 +1,5 @@
 import * as React from "react";
+// import MediaStreamRecorder from 'msr';
 
 interface IProps {
     roses: any[],
@@ -23,6 +24,7 @@ export default class ObjectList extends React.Component<IProps, {}> {
                         </div>
                     </div>  
                 </div>
+               {/* <div className="btn" onClick={this.searchTagByVoice}><i className="fa fa-microphone" /></div> */}
                 <div className="row rose-list-table">
                     <table className="table table-striped">
                         <tbody>
@@ -52,6 +54,48 @@ export default class ObjectList extends React.Component<IProps, {}> {
         }
         return table
     }
+
+    // private searchTagByVoice() {
+    //     const mediaConstraints = {
+    //         audio: true
+    // }
+    // const onMediaSuccess = (stream: any) => {
+    //     const mediaRecorder = new MediaStreamRecorder(stream);
+    //     mediaRecorder.mimeType = 'audio/wav'; // check this line for audio/wav
+    //     mediaRecorder.ondataavailable = (blob: any) => {
+    //         // this.postAudio(blob);
+    //         mediaRecorder.stop()
+    //     }
+    //     mediaRecorder.start(3000);
+    // }
+
+    // navigator.getUserMedia(mediaConstraints, onMediaSuccess, onMediaError)
+
+    // function onMediaError(e: any) {
+    //     console.error('media error', e);
+    // }
+
+    // // posting audio
+    // fetch('[YOUR API END POINT]', {
+    //     body: blob, // this is a .wav audio file    
+    //     headers: {
+    //         'Accept': 'application/json',
+    //         'Authorization': 'Bearer' + accessToken,
+    //         'Content-Type': 'audio/wav;codec=audio/pcm; samplerate=16000',
+    //         'Ocp-Apim-Subscription-Key': '[YOUR SUBSCRIPTION KEY]'
+    //     },    
+    //     method: 'POST'
+    // }).then((res) => {
+    //     return res.json()
+    // }).then((res: any) => {
+    //     console.log(res)
+    // }).catch((error) => {
+    //     console.log("Error", error)
+    // });
+
+
+    // }
+    
     
     // Rose selection handler to display selected rose in details component
     private selectRow(index: any) {

@@ -1,26 +1,41 @@
 import * as React from 'react';
-import Modal from 'react-responsive-modal';
+import * as Webcam from "react-webcam";
 import './App.css';
+import Logo from './logo.png';
+import Modal from 'react-responsive-modal';
 import ObjectDetail from './components/ObjectDetail';
 import ObjectList from './components/ObjectList';
-import Logo from './logo.png';
+
+
 
 
 interface IState {
+	authenticated: boolean,
 	currentRose: any,
 	roses: any[],
+	refCamera: any,
 	open: boolean,
+	predictionResult: any,
 	uploadFileList: any,
+	
+	
+	
 }
 
 class App extends React.Component<{}, IState> {
 	constructor(props: any) {
         super(props)
         this.state = {
+			authenticated: false,
 			currentRose: {"id":0, "title":"Loading ","url":"","tags":"⚆ _ ⚆","uploaded":"","width":"0","height":"0"},
 			open: false,
+			refCamera: React.createRef(),
 			roses: [],
-			uploadFileList: null
+			predictionResult: null,
+			uploadFileList: null,
+			
+			
+			
 		}     
 		
 		this.fetchRoses("")
@@ -28,19 +43,35 @@ class App extends React.Component<{}, IState> {
 		this.handleFileUpload = this.handleFileUpload.bind(this)
 		this.fetchRoses = this.fetchRoses.bind(this)
 		this.uploadRose = this.uploadRose.bind(this)
-		
+		this.authenticate = this.authenticate.bind(this)
 	}
 
 	public render() {
 		const { open } = this.state;
+		const { authenticated } = this.state;
 		return (
+			
 		<div>
+			{(!authenticated) ?
+				<Modal open={!authenticated} onClose={this.authenticate} closeOnOverlayClick={false} showCloseIcon={false} center={true}>
+					<Webcam
+						audio={false}
+						screenshotFormat="image/jpeg"
+						ref={this.state.refCamera}
+					/>
+					<div className="row nav-row">
+						<div className="btn btn-primary bottom-button" onClick={this.authenticate}>Login</div>
+					</div>
+				</Modal>
+			: ""}
+			
 			<div className="header-wrapper">
 				<div className="container header">
 					<img src={Logo} height='40'/>&nbsp; Rose Bank - MSA 2018 &nbsp;
 					<div className="btn btn-primary btn-action btn-add" onClick={this.onOpenModal}>Add Rose</div>
 				</div>
 			</div>
+			
 			<div className="container">
 				<div className="row">
 					<div className="col-7">
@@ -153,6 +184,51 @@ class App extends React.Component<{}, IState> {
 				location.reload()
 			}
 		  })
+	}
+
+	// Call custom vision model
+	private getFaceRecognitionResult(image: string) {
+	const url = "https://southcentralus.api.cognitive.microsoft.com/customvision/v2.0/Prediction/39db6acc-cc33-4ec2-a9c5-d9ef8f4095d8/image?iterationId=22386750-8682-4fc6-b1d8-eeb8cee95d35"
+	if (image === null) {
+		return;
+	}
+	const base64 = require('base64-js');
+	const base64content = image.split(";")[1].split(",")[1]
+	const byteArray = base64.toByteArray(base64content);
+	fetch(url, {
+		body: byteArray,
+		headers: {
+			'cache-control': 'no-cache', 'Prediction-Key': '07966062b7ec43e58dc5bc05805060d6', 'Content-Type': 'application/octet-stream'
+		},
+		method: 'POST'
+	})
+		.then((response: any) => {
+			if (!response.ok) {
+				// Error State
+				alert(response.statusText)
+			} else {
+				response.json().then((json: any) => {
+					console.log(json.predictions[0])
+					this.setState({predictionResult: json.predictions[0] })
+					if (this.state.predictionResult.probability > 0.7) {
+						this.setState({authenticated: true})
+					} else {
+						this.setState({authenticated: false})
+						
+					}
+				})
+			}
+		})
+
+		
+	}
+	
+
+	// Authenticate
+	private authenticate() {
+		const screenshot = this.state.refCamera.current.getScreenshot();
+		this.getFaceRecognitionResult(screenshot);
+		
 	}
 }
 
