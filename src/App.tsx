@@ -96,7 +96,7 @@ class App extends React.Component<{}, IState> {
 	private fetchRoses(tag: any) {
 		let url = "https://databankapi.azurewebsites.net/api/Class"
 		if (tag !== "") {
-			url += "/tags/" + tag
+			url += "/tag?tags=" + tag
 		}
         fetch(url, {
             method: 'GET'

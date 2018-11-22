@@ -130,28 +130,29 @@ namespace DataBank.Controllers
         }
 
         // GET: api/Class/Tags
-        //  [Route("tags")]
-        //  [HttpGet]
-        //  public async Task<List<string>> GetTags()
-        //  {
-        //      var objects = (from m in _context.ClassItem
-        //                     select m.Tags).Distinct();
-
-        //      var returned = await objects.ToListAsync();
-
-        //      return returned;
-        //  }
-
-        [Route("tags/{tags}")]
+        [Route("tags")]
         [HttpGet]
-        public async Task<List<ClassItem>> GetClassByTag([FromRoute] String tags)
+        public async Task<List<string>> GetTags()
+        {
+            var objects = (from m in _context.ClassItem
+                           select m.Tags).Distinct();
+
+            var returned = await objects.ToListAsync();
+
+            return returned;
+        }
+
+        [Route("tag")]
+        [HttpGet]
+        public async Task<List<ClassItem>> GetClassByTag([FromQuery] String tags)
         {
             var image = (from i in _context.ClassItem
-                         where i.Tags.Contains(tags)
-                         select i);
-
+                         select i); //get all the memes
+            if (!String.IsNullOrEmpty(tags)) //make sure user gave a tag to search
+            {
+                image = image.Where(s => s.Tags.Contains(tags)); // find the entries with the search tag and reassign
+            }
             var val = await image.ToListAsync();
-
             return val;
         }
 
