@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  text-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0);
 }
 
 .App-logo {
@@ -32,13 +33,12 @@
   align-items: center;
   justify-content: center;
   height: 50%;
-  border-radius: 20px;
-  padding-bottom: 10px;
+  border-radius: 5%;
+  padding-bottom: 1%;
 }
 
 .webCam{
   border-radius: 10px;
-  width: 50%;
 }
 
 .btn-primary {
@@ -51,4 +51,33 @@
 .logo {
   margin: 0 auto;
   width: 50px;
+}
+
+.closeBtn {
+  margin: 0 auto;
+  width: 20%;
+  margin-top: 2%;
+}
+
+.guestLogin {
+ margin-bottom: 1%;
+}
+
+.rsc-os-option {
+  color: #fff;
+}
+
+.styles_modal__gNwvD {
+  max-width: 800px;
+  position: relative;
+  padding: 1.2rem;
+  background-clip: padding-box;
+  margin: auto;
+  background: rgba(0, 0, 0, 0);
+  box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0);
+  color: #fff;
+}
+
+.darktheme {
+  background-color: #494949;
 }

@@ -18,7 +18,7 @@ body{
   font-family: 'Open Sans', sans-serif;
   font-weight: bold;
   position: relative;
-  padding-top: 10px;
+  
 }
 
 /* Selected Meme */
@@ -70,8 +70,8 @@ body{
 
 .btn-action{
   font-family: Helvetica;
-  background-color:#f5a623;
-  border-color: #f5a623;
+  background-color:#13bcff;
+  border-color: #13bcff;
   height:40px;
   margin-right: 10px;
   font-size:18px;
@@ -81,8 +81,8 @@ body{
 }
 
 .btn-action:hover {
-  background-color: #d18c1b;
-  border-color: #d18c1b;
+  background-color: #13bcff;
+  border-color: #13bcff;
 }
 
 .btn-add {
@@ -103,11 +103,14 @@ body{
 }
 
 .search-button:hover {
-  background-color: #d18c1b;
-  border-color: #d18c1b;
+  background-color: #12a2db;
+  border-color: #12a2db;
   color: white;
 }
 
-
+/* .input-group {
+  width: 50%;
+  margin: 0 auto;
+} */
 
 
