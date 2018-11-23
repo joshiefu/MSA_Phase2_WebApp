@@ -1,5 +1,10 @@
 import * as React from "react";
 import Modal from 'react-responsive-modal';
+import ExpansionPanel from '@material-ui/core/ExpansionPanel';
+import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
+import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
+import Typography from '@material-ui/core/Typography';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 interface IProps {
     currentRose: any
@@ -26,16 +31,26 @@ export default class ObjectDetail extends React.Component<IProps, IState> {
 		return (
 			<div className="container rose-wrapper">
                 <div className="row rose-heading">
-                    <b>{currentRose.title}</b>&nbsp; ({currentRose.tags})
+                    <b>{currentRose.title}</b>&nbsp;
                 </div>
-                <div className="row rose-date">
-                    {currentRose.uploaded}
-                </div>
+               
                 <div className="row rose-img">
                     <img src={currentRose.url}/>
                 </div>
-                
+                <ExpansionPanel>
+        <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+          <Typography>{currentRose.title}</Typography>
+        </ExpansionPanelSummary>
+        <ExpansionPanelDetails>
+        <Typography>{currentRose.tags}&nbsp;</Typography>
+          <Typography>
+    
+            {currentRose.uploaded}
+          </Typography>
+        </ExpansionPanelDetails>
+      </ExpansionPanel>
                 <div className="row rose-done-button">
+                
                     <div className="btn btn-primary btn-action" onClick={this.downloadRose.bind(this, currentRose.url)}>Download </div>
                     <div className="btn btn-primary btn-action" onClick={this.onOpenModal}>Edit </div>
                     <div className="btn btn-primary btn-action" onClick={this.deleteRose.bind(this, currentRose.id)}>Delete </div>

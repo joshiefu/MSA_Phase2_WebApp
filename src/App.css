@@ -80,4 +80,25 @@
 
 .darktheme {
   background-color: #494949;
+  color: #fff;
+}
+
+.header-wrapper {
+  height: 80px;
+}
+
+.footer {
+  background-color: #494949;
+  align-content: center;
+  margin: 0 auto;
+}
+
+.dark {
+  background-color: bisque;
+  align-content: center;
+  margin: 0 auto;
+}
+
+.headerDark {
+  color: #494949;
 }

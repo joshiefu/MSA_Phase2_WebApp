@@ -131,9 +131,9 @@ class App extends React.Component<{}, IState> {
 							<ObjectDetail currentRose={this.state.currentRose} />
 						</div>
 						<div className="col-5">
-						<Switch onChange={this.changeTheme }
-					value="changedA"
-					color="secondary"/>
+						<Switch onChange={this.changeTheme } 
+						value="changedA" 
+						color="default"/>
 							<ObjectList roses={this.state.roses} selectNewRose={this.selectNewRose} searchByTag={this.fetchRoses} />
 						</div>
 					</div>
@@ -158,7 +158,7 @@ class App extends React.Component<{}, IState> {
 						<button type="button" className="btn" onClick={this.uploadRose}>Upload</button>
 					</form>
 				</Modal>
-			
+			<div className='footer'>
 				<Button variant="fab" color="secondary" aria-label="Chat" onClick={this.openChatbot}>Help</Button>
 			
 				<div className='chatBot'>
@@ -236,6 +236,7 @@ class App extends React.Component<{}, IState> {
                         size={32}
                         round={true} />
                     </FacebookShareButton>
+					</div>
 			</div>
 		);} else {
 			return (
@@ -283,12 +284,12 @@ class App extends React.Component<{}, IState> {
 	
 						: ""}
 	
-					<div className="header-wrapper">
+					<div className="header-wrapper headerDark">
 						
 						<div className="logo">
 							<img src={Logo} height='40' />
 						</div>
-						<div className="container header darktheme">
+						<div className="container header ">
 	
 							&nbsp; Ros&eacute;pedia &nbsp;
 						<div className="btn btn-primary btn-action btn-add" onClick={this.onOpenModal}>Add Rose</div>
@@ -303,10 +304,15 @@ class App extends React.Component<{}, IState> {
 								<ObjectDetail currentRose={this.state.currentRose} />
 							</div>
 							<div className="col-5">
+							
 							<Switch onChange={this.changeTheme }
 						value="changedA"
-						color="primary"/>
-								<ObjectList roses={this.state.roses} selectNewRose={this.selectNewRose} searchByTag={this.fetchRoses} />
+						checked={true}
+						color="secondary"/>
+						<div className='detailDark'>
+								<ObjectList roses={this.state.roses} selectNewRose={this.selectNewRose}
+								 searchByTag={this.fetchRoses} />
+								 </div>
 							</div>
 						</div>
 					</div>
@@ -330,7 +336,7 @@ class App extends React.Component<{}, IState> {
 							<button type="button" className="btn" onClick={this.uploadRose}>Upload</button>
 						</form>
 					</Modal>
-				
+				<div className='dark'>
 					<Button variant="fab" color="primary" aria-label="Chat" onClick={this.openChatbot}>Help</Button>
 				
 					<div className='chatBot'>
@@ -396,7 +402,7 @@ class App extends React.Component<{}, IState> {
 						]}
 					/>
 					<div className='closeBtn'>
-					<Button  variant="extendedFab" color="primary" aria-label="Chat" onClick={this.closeBot}>Close</Button>
+					<Button  variant="extendedFab" color="primary" aria-label="Chat" onClick={this.closeBot}>X</Button>
 						</div>
 						</Modal>
 					</div>
@@ -408,6 +414,7 @@ class App extends React.Component<{}, IState> {
 							size={32}
 							round={true} />
 						</FacebookShareButton>
+				</div>
 				</div>
 				</div>
 			);
