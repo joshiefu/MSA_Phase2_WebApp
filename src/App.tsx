@@ -98,7 +98,7 @@ class App extends React.Component<{}, IState> {
 									<DialogTitle id="alert-dialog-slide-title">{"Facial Recognition Failed"} </DialogTitle>
 									<DialogContent>
 										<DialogContentText id="alert-dialog-slide-description">
-											Sorry, the facial authentication system has seems to think you are not a Stock Sloth developer. Please use the "User" Login.
+											Sorry, the facial recognition system does not recognise you as a developer. Please continue via Guest Login.
                 						</DialogContentText>
 									</DialogContent>
 									<DialogActions>
