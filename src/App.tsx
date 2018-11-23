@@ -5,9 +5,13 @@ import Logo from './logo.png';
 import Modal from 'react-responsive-modal';
 import ObjectDetail from './components/ObjectDetail';
 import ObjectList from './components/ObjectList';
-
-
-
+import DialogTitle from '@material-ui/core/DialogTitle';
+import Dialog from '@material-ui/core/Dialog';
+import DialogContent from '@material-ui/core/DialogContent'
+import DialogContentText from '@material-ui/core/DialogContentText'
+import Button from '@material-ui/core/Button'
+import { Transition } from 'react-transition-group';
+import { DialogActions } from '@material-ui/core';
 
 interface IState {
 	authenticated: boolean,
@@ -17,7 +21,7 @@ interface IState {
 	open: boolean,
 	predictionResult: any,
 	uploadFileList: any,
-	
+	loginFailure: boolean,
 	
 	
 }
@@ -33,6 +37,7 @@ class App extends React.Component<{}, IState> {
 			roses: [],
 			predictionResult: null,
 			uploadFileList: null,
+			loginFailure: false,
 			
 			
 			
@@ -48,27 +53,54 @@ class App extends React.Component<{}, IState> {
 
 	public render() {
 		const { open } = this.state;
-		const { authenticated } = this.state;
-		return (
+		const { authenticated} = this.state;
+		return ( 
 			
 		<div>
 			{(!authenticated) ?
+			<div>
 				<Modal open={!authenticated} onClose={this.authenticate} closeOnOverlayClick={false} showCloseIcon={false} center={true}>
 					<Webcam
+						className="camera"
 						audio={false}
 						screenshotFormat="image/jpeg"
 						ref={this.state.refCamera}
+						
 					/>
 					<div className="row nav-row">
-						<div className="btn btn-primary bottom-button" onClick={this.authenticate}>Login</div>
+						<div className="btn btn-primary bottom-button loginBtns" onClick={this.authenticate}>Developer Login</div>
 					</div>
+					<div>
+                <Dialog open={this.state.loginFailure}
+                TransitionComponent={Transition}
+                onClose={this.loginClose}
+                aria-labelledby="alert-dialog-slide-title"
+                aria-describedby="alert-dialog-slide-description">
+                <DialogTitle id="alert-dialog-slide-title">{"Facial Recognition Failed"} </DialogTitle>
+                <DialogContent>
+                <DialogContentText id="alert-dialog-slide-description">
+                Sorry, the facial authentication system has seems to think you are not a Stock Sloth developer. Please use the "User" Login.
+                </DialogContentText>
+                </DialogContent>
+                <DialogActions>
+                <Button onClick={this.loginClose} color="primary"> OK </Button>
+                </DialogActions>
+                </Dialog>
+                </div>
 				</Modal>
+			</div>
+		
 			: ""}
 			
 			<div className="header-wrapper">
+			<div className="logo">
+				<img src={Logo} height='40'/>
+			</div>
 				<div className="container header">
-					<img src={Logo} height='40'/>&nbsp; Rose Bank - MSA 2018 &nbsp;
+					
+					&nbsp; Ros&eacute;pedia &nbsp;
 					<div className="btn btn-primary btn-action btn-add" onClick={this.onOpenModal}>Add Rose</div>
+					
 				</div>
 			</div>
 			
@@ -106,6 +138,11 @@ class App extends React.Component<{}, IState> {
 		);
 	}
 
+	private loginClose = () => {
+		this.setState({ loginFailure: false});
+	};
+
+	
 	// Modal open
 	private onOpenModal = () => {
 		this.setState({ open: true });
@@ -120,8 +157,8 @@ class App extends React.Component<{}, IState> {
 	private selectNewRose(newRose: any) {
 		this.setState({
 			currentRose: newRose
-		})
-	}
+		});
+	};
 
 	// GET roses
 	private fetchRoses(tag: any) {
@@ -214,7 +251,7 @@ class App extends React.Component<{}, IState> {
 						this.setState({authenticated: true})
 					} else {
 						this.setState({authenticated: false})
-						
+						this.setState({loginFailure: true})
 					}
 				})
 			}
@@ -228,6 +265,7 @@ class App extends React.Component<{}, IState> {
 	private authenticate() {
 		const screenshot = this.state.refCamera.current.getScreenshot();
 		this.getFaceRecognitionResult(screenshot);
+		
 		
 	}
 }
